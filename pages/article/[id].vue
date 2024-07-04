@@ -10,10 +10,9 @@
     >
       <h1>{{ articleInfo.preview }}</h1>
       <img
-      :src="imageUrl"
-      :alt="articleInfo.image?.slice(articleInfo.image.lastIndexOf('/') + 1)"
-      :onerror="handleImageError()"
-
+        :src="imageUrl"
+        :alt="articleInfo.image?.slice(articleInfo.image.lastIndexOf('/') + 1)"
+        @error="handleImageError()"
       >
       <div class="article-page__info-desc">
         <p>About</p>
@@ -31,7 +30,6 @@ const { id } = useRoute().params;
 const { data: articles } = useNuxtData('articles');
 
 const articleInfo = ref({} as Article);
-const imageUrl = ref(articleInfo.value?.image);
 
 const { data, error } = articles.value
   ? useLazyFetch(`${BASEURL}/${id}`, {
@@ -45,6 +43,7 @@ const { data, error } = articles.value
     });
 
 articleInfo.value = data.value;
+const imageUrl = ref(articleInfo.value.image);
 
 const handleImageError = () => {
   imageUrl.value = '/images/fallback.png';
