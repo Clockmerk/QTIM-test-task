@@ -1,0 +1,16 @@
+@use 'sass:map';
+
+$colors: (
+  'mono-1': #232323,
+  'mono-2': #868686,
+  'mono-3': #f3f3f3,
+
+  'green': #9effbf,
+  'purple': #7941a7,
+  'pink': #e2beff,
+  'blue': #1059c8,
+  'cream': #f8d5c3,
+  
+  'success': #05ae71,
+  'error': #e84e58,
+);
