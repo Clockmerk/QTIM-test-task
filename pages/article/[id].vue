@@ -9,11 +9,12 @@
       }"
     >
       <h1>{{ articleInfo.preview }}</h1>
-      <NuxtImg
-        :src="imageUrl"
-        :alt="articleInfo.image?.slice(articleInfo.image.lastIndexOf('/') + 1)"
-        @error="handleImageError"
-      />
+      <img
+      :src="imageUrl"
+      :alt="articleInfo.image?.slice(articleInfo.image.lastIndexOf('/') + 1)"
+      :onerror="handleImageError()"
+
+      >
       <div class="article-page__info-desc">
         <p>About</p>
         <p>{{ articleInfo.description }}</p>
@@ -46,7 +47,7 @@ const { data, error } = articles.value
 articleInfo.value = data.value;
 
 const handleImageError = () => {
-  imageUrl.value = 'fallback.png';
+  imageUrl.value = '/images/fallback.png';
 };
 </script>
 

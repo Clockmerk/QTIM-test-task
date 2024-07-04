@@ -1,6 +1,6 @@
 <template>
   <section class="main-page">
-    <NuxtImg src="home.png" alt="QTIM" />
+    <img src="/images/home.png" alt="QTIM">
     <h1>QTIM - тестовое задание</h1>
   </section>
 </template>
@@ -21,6 +21,12 @@
     font-weight: 400;
     line-height: 40px;
     text-align: left;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  img {
+    width: 100%;
   }
 }
 </style>

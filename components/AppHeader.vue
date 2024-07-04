@@ -2,16 +2,16 @@
   <header>
     <div class="header__logo">
       <NuxtLink to="/">
-        <NuxtImg
+        <img
           :src="
-            styleLayout === 'default' ? 'logos/logo.png' : 'logos/logo-2.png'
+            styleLayout === 'default' ? '/images/logos/logo.png' : '/images/logos/logo-2.png'
           "
           :style="{
             height: styleLayout === 'default' ? '25px' : '35px',
             width: styleLayout === 'default' ? '84px' : '144px',
           }"
-          :alt="styleLayout === 'default' ? 'QTIM' : 'Payout'"
-      /></NuxtLink>
+          :alt="styleLayout === 'default' ? 'QTIM' : 'Payot'"
+      ></NuxtLink>
     </div>
     <div class="header__controls">
       <nav :class="'header__controls-nav' + ' ' + styleLayout">
@@ -47,7 +47,7 @@
       @click.self="show = false"
     >
       <ul class="header__menu-links">
-        <li>Back</li>
+        <li @click="show = false">Back</li>
         <li v-for="link of ['Works', 'About']" :key="link" :class="'links'">
           <NuxtLink :to="`/${link}`" @click="show = false">{{ link }}</NuxtLink>
         </li>

@@ -23,7 +23,10 @@
         @click="page -= 1"
       />
       <ButtonCustom
-        v-for="element in paginationArray.slice(page - 1, page + 4)"
+        v-for="element in paginationArray.slice(
+          page > 2 ? page - 3 : 0,
+          page < 2 ? 5 : page + 2
+        )"
         :key="element"
         content="text"
         :styling="element === page ? 'active' : 'default'"
@@ -96,6 +99,5 @@ section {
   .articles-page__containter {
     justify-content: center;
   }
-  
 }
 </style>

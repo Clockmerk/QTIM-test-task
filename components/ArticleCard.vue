@@ -1,11 +1,11 @@
 <template>
   <article class="article-card">
     <div class="article-card__img">
-      <NuxtImg
+      <img
         :src="imageUrl"
         :alt="img.slice(img.lastIndexOf('/') + 1)"
-        @error="handleImageError"
-      />
+        @error="handleImageError()"
+      >
     </div>
     <div class="article-card__info">
       <p class="article-card__title">{{ preview }}</p>
@@ -38,7 +38,7 @@ const props = defineProps({
 
 const imageUrl = ref(props.img);
 const handleImageError = () => {
-  imageUrl.value = 'fallback.png';
+  imageUrl.value = 'images/fallback.png';
 };
 
 const styleLayout = inject('styleLayout');

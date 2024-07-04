@@ -1,11 +1,10 @@
 <template>
-  <div class="select-imgs">
+  <div class="select-imgs" @click="show = !show">
     <div
       class="select-imgs__box"
       :style="{
         backgroundImage: `url('/images/${source}/${selectedValue}.png')`,
       }"
-      @click="show = !show"
     >
       <ul v-if="show" class="select-imgs__list">
         <li
